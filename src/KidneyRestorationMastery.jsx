@@ -25,7 +25,7 @@ import PricingCard from './components/PricingCard.jsx'
 import CaseStudyCard from './components/CaseStudyCard.jsx'
 import LabResultCard from './components/LabResultCard.jsx'
 import VslEmbed from './components/VslEmbed.jsx'
-import ApplicationForm from './components/ApplicationForm.jsx'
+import NextStepsSection from './components/NextStepsSection.jsx'
 import StickyHeader from './components/StickyHeader.jsx'
 import { useScrollDepthTracking } from './hooks/useReveal.js'
 import { trackCtaClick, trackScrollDepth } from './lib/analytics.js'
@@ -33,6 +33,7 @@ import {
   pillars,
   coreInclusions,
   pricingTiers,
+  ctaLinks,
   caseStudies,
   labResults,
   fitYes,
@@ -546,72 +547,24 @@ export default function KidneyRestorationMastery() {
         </Reveal>
       </TrackedSection>
 
-      {/* ============ SECTION 11: APPLICATION / ENROLLMENT ============ */}
-      <TrackedSection id="apply-section" className="px-5 py-16 sm:px-10 sm:py-24">
+      {/* ============ SECTION 11: NEXT STEPS ============ */}
+      <TrackedSection id="apply" className="px-5 py-16 sm:px-10 sm:py-24">
         <Reveal>
           <SectionHeading
-            eyebrow="Enrollment"
-            title="Apply For Your Premium Program"
-            subtitle="Limited spots available. For serious, committed patients only."
+            eyebrow="Ready When You Are"
+            title="Choose How You Want to Move Forward"
+            subtitle="Pick your tier, then pick your path. Pay in full, break it into payments, or talk to us first. Limited spots available."
           />
         </Reveal>
 
-        <div className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-3">
-          {[
-            {
-              tier: 'Mastery',
-              label: 'Apply for Mastery',
-              copy: 'Full premium program, monthly coaching, 12 months. Choose this if you’re ready for the full system.',
-              primary: true,
-            },
-            {
-              tier: 'Foundation',
-              label: 'Apply for Foundation',
-              copy: 'Entry-level premium program, 6 months. Choose this if you want to test the system first.',
-            },
-            {
-              tier: 'Elite',
-              label: 'Apply for Elite Program',
-              copy: 'Biweekly coaching, advanced medical oversight, premium access. Limited to 20–30 spots/year.',
-            },
-          ].map((path) => (
-            <Reveal key={path.tier}>
-              <div
-                className={`flex h-full flex-col rounded-2xl p-6 text-center ${
-                  path.primary
-                    ? 'bg-navy text-white shadow-premium ring-2 ring-teal'
-                    : 'bg-white ring-1 ring-gray-100 shadow-card'
-                }`}
-              >
-                <button
-                  type="button"
-                  onClick={() => {
-                    trackCtaClick(path.tier, 'application_paths')
-                    scrollToApply(path.tier)
-                  }}
-                  className={`w-full rounded-lg px-5 py-3.5 text-sm font-bold transition-colors duration-200 ${
-                    path.primary
-                      ? 'bg-teal text-white hover:bg-teal-dark'
-                      : 'bg-navy text-white hover:bg-navy-light'
-                  }`}
-                >
-                  {path.label}
-                </button>
-                <p
-                  className={`mt-4 flex-1 text-sm ${
-                    path.primary ? 'text-gray-300' : 'text-gray-600'
-                  }`}
-                >
-                  {path.copy}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal>
-          <div className="mx-auto mt-12 max-w-3xl">
-            <ApplicationForm defaultTier={selectedTier} id="apply" />
+        <Reveal delay={100}>
+          <div className="mt-12">
+            <NextStepsSection
+              tiers={pricingTiers}
+              ctaLinks={ctaLinks}
+              selectedTier={selectedTier}
+              onSelectTier={setSelectedTier}
+            />
           </div>
         </Reveal>
       </TrackedSection>
@@ -650,15 +603,14 @@ export default function KidneyRestorationMastery() {
               </li>
             </ul>
             <p className="mt-5 text-sm text-gray-500">
-              No hidden fees. No interest surprises. We&rsquo;ll walk through the exact
-              numbers for your tier, and the plan that fits your budget, on your strategy
-              call.
+              No hidden fees. No interest surprises. Choose your tier below to go straight
+              to financing, or talk to us first if you have questions.
             </p>
             <a
               href="#apply"
               className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-teal-dark underline decoration-teal/40 underline-offset-4 hover:text-teal"
             >
-              Apply to Discuss Financing
+              See Your Payment Options
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -691,7 +643,10 @@ export default function KidneyRestorationMastery() {
               <ArrowRight className="h-5 w-5" />
             </button>
             <a
-              href="#apply"
+              href={`${ctaLinks.calendar}${ctaLinks.calendar.includes('?') ? '&' : '?'}tier=${encodeURIComponent(selectedTier)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackCtaClick(selectedTier, 'final_cta_call')}
               className="inline-flex items-center gap-2 rounded-lg border-2 border-white/40 px-8 py-4 text-base font-bold text-white transition-colors duration-200 hover:border-white hover:bg-white/10"
             >
               Schedule Free Consultation

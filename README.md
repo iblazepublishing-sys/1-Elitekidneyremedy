@@ -1,7 +1,9 @@
 # Kidney Restoration Mastery: Elite Program
 
-A single high-converting landing page for the Elite ($9k / $6k / $30k) kidney
-restoration program, built with React + Tailwind CSS.
+A single high-converting landing page for the Elite kidney restoration
+program, built with React + Tailwind CSS. Pricing is never shown on the
+page itself — every path ends in one of three direct actions: pay in full,
+finance, or book a call.
 
 ## Stack
 
@@ -13,9 +15,10 @@ restoration program, built with React + Tailwind CSS.
 
 ```
 src/
-  KidneyRestorationMastery.jsx   # the page, assembles all 13 sections
-  data/content.js                # all copy (pillars, pricing, case studies, FAQ, timeline)
-  components/                    # PricingCard, CaseStudyCard, FAQItem, ApplicationForm,
+  KidneyRestorationMastery.jsx   # the page, assembles all sections
+  data/content.js                # all copy + the ctaLinks config (see below)
+  components/                    # PricingCard, CaseStudyCard, LabResultCard,
+                                  # FAQItem, VslEmbed, NextStepsSection,
                                   # StickyHeader, Reveal (scroll-in animation wrapper)
   hooks/useReveal.js              # IntersectionObserver hooks (reveal + scroll-depth tracking)
   lib/analytics.js                # GA4 event helpers (safe no-ops if gtag isn't present)
@@ -39,15 +42,27 @@ or any static host.
 
 ## Before launch: things to wire up
 
-1. **Formspree endpoint**: `src/components/ApplicationForm.jsx` has a
-   placeholder `FORMSPREE_ENDPOINT`. Replace it with your real form ID from
-   https://formspree.io.
-2. **GA4**: add your GA4 `gtag.js` snippet to `index.html`; the tracking
+1. **`ctaLinks` in `src/data/content.js`**: this is the most important one.
+   Every "Apply"/"Pay In Full"/"Financing"/"Talk To Us" button on the page
+   scrolls to the Next Steps section, which reads its destinations from
+   here. Replace the placeholders with real URLs:
+   - `tiers.<Foundation|Mastery|Elite>.store`: the product page on your
+     main store for that tier (pay in full / full checkout)
+   - `tiers.<Foundation|Mastery|Elite>.financing`: your Affirm or WHOP
+     link for that tier
+   - `calendar`: your booking link (Calendly, Acuity, etc.) — shared
+     across tiers; the tier name is appended as a `?tier=` query param
+     automatically so you can see which tier someone was viewing
+2. **VSL video**: `VslEmbed` (used in the hero) shows a placeholder until
+   you pass it a real `embedUrl` (Wistia/Vimeo/YouTube embed URL) in
+   `KidneyRestorationMastery.jsx`.
+3. **Lab result images**: `labResults` in `src/data/content.js` has an
+   `image: null` placeholder per patient. Set `image` to a real URL once
+   you have the screenshots/charts, and `LabResultCard` will render them.
+4. **GA4**: add your GA4 `gtag.js` snippet to `index.html`; the tracking
    calls in `src/lib/analytics.js` are safe no-ops until then.
-3. **Financing links**: the "See Financing Options" link and disclaimer
-   copy reference Affirm/WHOP; point them at your actual partner links.
-4. **Footer contact info**: swap the placeholder email/phone in the footer
+5. **Footer contact info**: swap the placeholder email/phone in the footer
    for your real support channels.
-5. **Case studies**: results shown (Sue Lynn Gross Fisher, Stanley Shepherd,
+6. **Case studies**: results shown (Sue Lynn Gross Fisher, Stanley Shepherd,
    Frank Williams) are real testimonials; confirm you have consent on file
    before publishing.

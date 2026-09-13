@@ -121,6 +121,32 @@ export const pricingTiers = [
   },
 ]
 
+// Where each of the three "ready to move forward" CTAs actually sends
+// someone. Replace every placeholder below with your real links before
+// launch — nothing here is wired to a real destination yet.
+//   - store: the product page on your main store for that tier (pay in full)
+//   - financing: your Affirm or WHOP checkout/financing link for that tier
+//   - calendar: your booking link (Calendly, Acuity, etc.), shared across
+//     tiers — the tier name is appended as a query param so you can see
+//     which tier someone was looking at when they booked
+export const ctaLinks = {
+  calendar: 'https://calendly.com/YOUR-LINK/strategy-call',
+  tiers: {
+    Foundation: {
+      store: 'https://YOUR-STORE.com/products/foundation-program',
+      financing: 'https://YOUR-STORE.com/products/foundation-program?financing=true',
+    },
+    Mastery: {
+      store: 'https://YOUR-STORE.com/products/mastery-program',
+      financing: 'https://YOUR-STORE.com/products/mastery-program?financing=true',
+    },
+    Elite: {
+      store: 'https://YOUR-STORE.com/products/elite-program',
+      financing: 'https://YOUR-STORE.com/products/elite-program?financing=true',
+    },
+  },
+}
+
 export const caseStudies = [
   {
     name: 'Sue Lynn Gross Fisher',
@@ -255,7 +281,7 @@ export const faqs = [
   {
     question: 'Can I finance this?',
     answer:
-      'Yes. Every tier can be financed through Affirm at 0% APR or through flexible WHOP payment plans, so a single upfront payment is never required. We’ll walk through the exact numbers and what fits your budget on your strategy call, so financing questions should never stop you from applying.',
+      'Yes. Every tier can be financed through Affirm at 0% APR or through flexible WHOP payment plans, so a single upfront payment is never required. You can go straight to financing from the options below, or talk to us first if you want to walk through the numbers together.',
   },
   {
     question: 'What if I’m already on dialysis? Will this actually work?',
