@@ -90,8 +90,8 @@ export default function ApplicationForm({ defaultTier = '', id = 'apply' }) {
           We review all applications personally within 24 hours. If you&rsquo;re a fit,
           we&rsquo;ll contact you to schedule your premium consultation (30 minutes). On
           the call, we&rsquo;ll assess your situation, design your custom protocol, and
-          answer all questions. No pressure. Only serious patients move forward &mdash;
-          this is how we maintain our results. Thanks for applying.
+          answer all questions. No pressure. Only serious patients move forward. This is
+          how we maintain our results. Thanks for applying.
         </p>
       </div>
     )

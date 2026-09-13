@@ -16,12 +16,15 @@ import {
   Sparkles,
   DollarSign,
   BarChart3,
+  Lock,
 } from 'lucide-react'
 
 import Reveal from './components/Reveal.jsx'
 import FAQItem from './components/FAQItem.jsx'
 import PricingCard from './components/PricingCard.jsx'
 import CaseStudyCard from './components/CaseStudyCard.jsx'
+import LabResultCard from './components/LabResultCard.jsx'
+import VslEmbed from './components/VslEmbed.jsx'
 import ApplicationForm from './components/ApplicationForm.jsx'
 import StickyHeader from './components/StickyHeader.jsx'
 import { useScrollDepthTracking } from './hooks/useReveal.js'
@@ -31,6 +34,7 @@ import {
   coreInclusions,
   pricingTiers,
   caseStudies,
+  labResults,
   fitYes,
   fitNo,
   timeline,
@@ -119,6 +123,13 @@ export default function KidneyRestorationMastery() {
             personalization. Measurable results. Guaranteed.
           </p>
 
+          <div className="mt-10">
+            <p className="mb-4 text-xs font-bold uppercase tracking-widest text-mint">
+              Watch This Before You Apply
+            </p>
+            <VslEmbed />
+          </div>
+
           <div className="mt-10 flex flex-col items-center gap-3">
             <button
               type="button"
@@ -132,7 +143,7 @@ export default function KidneyRestorationMastery() {
               <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
             </button>
             <p className="text-sm text-gray-300">
-              Premium commitment levels start at $9k/year. Financing available.
+              Serious commitment levels for serious patients. Financing available.
             </p>
             <a
               href="#solution"
@@ -245,7 +256,7 @@ export default function KidneyRestorationMastery() {
           <SectionHeading
             eyebrow="Investment"
             title="Choose Your Commitment Level"
-            subtitle="Same core program. Different intensity of access and oversight."
+            subtitle="Same core program. Different intensity of access and oversight. Your exact investment is discussed personally on your strategy call."
           />
         </Reveal>
 
@@ -278,8 +289,8 @@ export default function KidneyRestorationMastery() {
             <p className="mt-5 text-base sm:text-lg leading-relaxed text-gray-700">
               If you commit to the protocol for 6 months and your eGFR doesn&rsquo;t improve
               measurably, we refund 50%. We put our money where our mouth is. This is how
-              confident we are. Most programs won&rsquo;t guarantee results. We do &mdash;
-              this is what separates premium programs from the rest.
+              confident we are. Most programs won&rsquo;t guarantee results. We do. This is
+              what separates premium programs from the rest.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -312,6 +323,25 @@ export default function KidneyRestorationMastery() {
           {caseStudies.map((study, index) => (
             <Reveal key={study.name} delay={index * 100}>
               <CaseStudyCard {...study} />
+            </Reveal>
+          ))}
+        </div>
+      </TrackedSection>
+
+      {/* ============ SECTION 6B: VERIFIED LAB RESULTS ============ */}
+      <TrackedSection id="labs" className="bg-white px-5 py-16 sm:px-10 sm:py-20">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Proof, Not Promises"
+            title="Verified Lab Results"
+            subtitle="The same labs your own nephrologist would run. Reviewed with each patient's care team, not cherry-picked."
+          />
+        </Reveal>
+
+        <div className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-3">
+          {labResults.map((result, index) => (
+            <Reveal key={result.name} delay={index * 100}>
+              <LabResultCard {...result} />
             </Reveal>
           ))}
         </div>
@@ -414,12 +444,15 @@ export default function KidneyRestorationMastery() {
               <p className="text-xs font-bold uppercase tracking-widest text-mint">
                 Mastery Tier
               </p>
-              <h3 className="mt-2 text-lg font-extrabold text-white">$9,000 / Year</h3>
+              <h3 className="mt-2 flex items-center gap-2 text-lg font-extrabold text-white">
+                <Lock className="h-4 w-4 text-mint" />
+                Revealed On Your Call
+              </h3>
               <dl className="mt-5 space-y-3 text-sm">
                 <div className="flex justify-between gap-3">
                   <dt className="text-gray-300">Cost</dt>
                   <dd className="text-right font-semibold text-white">
-                    $9,000/yr ($750/mo financed)
+                    Discussed on your call, financing available
                   </dd>
                 </div>
                 <div className="flex justify-between gap-3">
@@ -454,10 +487,11 @@ export default function KidneyRestorationMastery() {
               <h3 className="mt-4 text-lg font-extrabold text-navy">The Math For You</h3>
               <p className="mt-3 text-sm leading-relaxed text-gray-700">
                 Dialysis costs $100k–150k annually, plus lost productivity, plus lost
-                freedom. Our program costs $9k. If we help you avoid dialysis, it paid for
-                itself in less than a month. If we help you exit dialysis? It&rsquo;s the
-                best investment you&rsquo;ll ever make. This isn&rsquo;t a cost &mdash; this
-                is getting your life and business back.
+                freedom. Our program costs a fraction of that, with measurable results
+                guaranteed. If we help you avoid dialysis, it can pay for itself many times
+                over in the first year alone. If we help you exit dialysis? It&rsquo;s the
+                best investment you&rsquo;ll ever make. This isn&rsquo;t a cost. This is
+                getting your life and business back.
               </p>
             </div>
           </Reveal>
@@ -526,18 +560,18 @@ export default function KidneyRestorationMastery() {
           {[
             {
               tier: 'Mastery',
-              label: 'Apply for Mastery ($9k/12mo)',
+              label: 'Apply for Mastery',
               copy: 'Full premium program, monthly coaching, 12 months. Choose this if you’re ready for the full system.',
               primary: true,
             },
             {
               tier: 'Foundation',
-              label: 'Apply for Foundation ($6k/6mo)',
+              label: 'Apply for Foundation',
               copy: 'Entry-level premium program, 6 months. Choose this if you want to test the system first.',
             },
             {
               tier: 'Elite',
-              label: 'Apply for Elite Program ($30k/12mo)',
+              label: 'Apply for Elite Program',
               copy: 'Biweekly coaching, advanced medical oversight, premium access. Limited to 20–30 spots/year.',
             },
           ].map((path) => (
@@ -595,35 +629,36 @@ export default function KidneyRestorationMastery() {
           <div className="mx-auto mt-10 max-w-2xl rounded-2xl bg-cloud p-7 sm:p-9 ring-1 ring-gray-100">
             <p className="flex items-center gap-2 text-sm font-bold text-navy">
               <BarChart3 className="h-4 w-4 text-teal" />
-              Mastery Tier ($9,000) Payment Options
+              Payment Options
             </p>
             <ul className="mt-4 space-y-2.5 text-sm text-gray-600">
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal" />
-                Full payment: $9,000 one-time
+                Pay in full, or split across the length of your program
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal" />
-                Monthly plan: $750/month × 12 (Affirm, 0% APR)
+                Monthly plans available through Affirm at 0% APR
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal" />
-                Semi-annual: $4,500 × 2 (Affirm, 0% APR)
+                Semi-annual plans available through Affirm at 0% APR
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal" />
-                WHOP flexible payment plan available
+                Flexible WHOP payment plans available
               </li>
             </ul>
             <p className="mt-5 text-sm text-gray-500">
-              No hidden fees. No interest surprises. Just a premium program, premium
-              results, and a flexible payment structure.
+              No hidden fees. No interest surprises. We&rsquo;ll walk through the exact
+              numbers for your tier, and the plan that fits your budget, on your strategy
+              call.
             </p>
             <a
               href="#apply"
               className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-teal-dark underline decoration-teal/40 underline-offset-4 hover:text-teal"
             >
-              See Financing Options
+              Apply to Discuss Financing
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>

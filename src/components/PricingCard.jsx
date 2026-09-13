@@ -1,12 +1,10 @@
-import { Check, Star } from 'lucide-react'
+import { Check, Star, Lock } from 'lucide-react'
 import { trackCtaClick } from '../lib/analytics.js'
 
 export default function PricingCard({
   tier,
   name,
-  price,
   term,
-  monthlyNote,
   positioning,
   features,
   whoChooses,
@@ -40,15 +38,21 @@ export default function PricingCard({
         {name}
       </h3>
 
-      <div className="mt-4 flex items-baseline gap-2">
-        <span className={`text-4xl font-extrabold ${featured ? 'text-white' : 'text-navy'}`}>
-          {price}
-        </span>
-        <span className={featured ? 'text-gray-300' : 'text-gray-500'}>/ {term}</span>
+      <div
+        className={`mt-4 flex items-center gap-2.5 rounded-lg px-4 py-3 ${
+          featured ? 'bg-white/10' : 'bg-cloud'
+        }`}
+      >
+        <Lock className={`h-4 w-4 flex-shrink-0 ${featured ? 'text-mint' : 'text-teal'}`} />
+        <div>
+          <p className={`text-sm font-bold ${featured ? 'text-white' : 'text-navy'}`}>
+            Investment revealed on your call
+          </p>
+          <p className={`text-xs ${featured ? 'text-gray-300' : 'text-gray-500'}`}>
+            {term} program &middot; financing available
+          </p>
+        </div>
       </div>
-      {monthlyNote && (
-        <p className={`mt-1 text-sm ${featured ? 'text-mint' : 'text-teal-dark'}`}>{monthlyNote}</p>
-      )}
 
       <ul className="mt-6 flex-1 space-y-3">
         {features.map((feature) => (

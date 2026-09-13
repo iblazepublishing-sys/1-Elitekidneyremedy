@@ -62,11 +62,14 @@ export const coreInclusions = [
   'Guarantee: 50% refund if no eGFR improvement at 6 months',
 ]
 
+// Pricing is intentionally not shown here. Like most premium/high-ticket
+// programs, the investment is discussed personally on the strategy call
+// once we understand the applicant's stage and goals. PricingCard renders
+// a "revealed on your call" state instead of a dollar figure.
 export const pricingTiers = [
   {
     tier: 'Foundation',
     name: 'Foundation',
-    price: '$6,000',
     term: '6 Months',
     positioning: 'Entry-Level Premium',
     features: [
@@ -82,9 +85,7 @@ export const pricingTiers = [
   {
     tier: 'Mastery',
     name: 'Mastery',
-    price: '$9,000',
     term: '12 Months',
-    monthlyNote: '$750/month with financing',
     positioning: 'Full Elite Program',
     featured: true,
     features: [
@@ -102,7 +103,6 @@ export const pricingTiers = [
   {
     tier: 'Elite',
     name: 'Elite',
-    price: '$30,000',
     term: '12 Months',
     positioning: 'Maximum Premium Access',
     features: [
@@ -145,6 +145,32 @@ export const caseStudies = [
     result: 'eGFR 11% → 46% (↑35), OFF DIALYSIS, back running his company',
     quote:
       'I didn’t have time for guessing. I needed certainty and premium results. This program delivered. Off dialysis, back to running my company full-time. Energy I hadn’t felt in 5 years.',
+  },
+]
+
+// Verified lab result images: each `image` is left null until the real
+// scan/chart is supplied; LabResultCard renders a placeholder slot until then.
+export const labResults = [
+  {
+    name: 'Frank Williams',
+    metric: 'eGFR',
+    change: '11% → 46%',
+    note: 'Active dialysis to off dialysis, 9 months',
+    image: null,
+  },
+  {
+    name: 'Sue Lynn Gross Fisher',
+    metric: 'A1C',
+    change: '8.8% → 6.2%',
+    note: 'No protein in urine within 3 weeks',
+    image: null,
+  },
+  {
+    name: 'Stanley Shepherd',
+    metric: 'eGFR / Creatinine',
+    change: '19%→29% eGFR · 3.8→2.6 Cr',
+    note: 'Dialysis avoided, 5 months',
+    image: null,
   },
 ]
 
@@ -219,7 +245,7 @@ export const faqs = [
   {
     question: 'Which tier should I choose?',
     answer:
-      'Mastery ($9k/12mo) is our primary tier for most elite customers: the full program, monthly coaching, and comprehensive tracking. Foundation ($6k/6mo) is for testing the system first. Elite ($30k) is for biweekly coaching, advanced medical oversight, and premium access. Start where it fits your commitment level.',
+      'Mastery is our primary tier for most elite customers: the full program, monthly coaching, and comprehensive tracking. Foundation is for testing the system first. Elite is for biweekly coaching, advanced medical oversight, and premium access. We’ll help you find the right fit, and walk through the exact investment for each, on your strategy call.',
   },
   {
     question: 'Will this actually work for my specific stage?',
@@ -229,7 +255,7 @@ export const faqs = [
   {
     question: 'Can I finance this?',
     answer:
-      'Yes. Mastery tier is $9k/year, payable in full or split into 12 monthly payments of $750 through Affirm at 0% APR. We also offer flexible WHOP payment plans. If budget is a concern, Foundation tier is $6k over 6 months, but don’t let financing questions stop you from applying. We have options.',
+      'Yes. Every tier can be financed through Affirm at 0% APR or through flexible WHOP payment plans, so a single upfront payment is never required. We’ll walk through the exact numbers and what fits your budget on your strategy call, so financing questions should never stop you from applying.',
   },
   {
     question: 'What if I’m already on dialysis? Will this actually work?',
@@ -249,7 +275,7 @@ export const faqs = [
   {
     question: 'How do I know the results are real?',
     answer:
-      'Blood work every 60 days that you can show your own nephrologist. Lab data doesn’t lie. Our 50% money-back guarantee at 6 months is us putting our money behind measurable results.',
+      'Blood work every 60 days that you can show your own nephrologist. Lab data doesn’t lie, and we publish real, verified lab results from our own patients. Our 50% money-back guarantee at 6 months is us putting our money behind measurable results.',
   },
   {
     question: 'Is this just premium supplements?',
@@ -259,11 +285,16 @@ export const faqs = [
   {
     question: 'What happens after my commitment ends?',
     answer:
-      'You keep the habits, the knowledge, and the results. Most elite patients continue because the results are real and the lifestyle is sustainable. We offer month-to-month continuation at a lower cost ($300–500/month) for maintenance once the real transformation work is done.',
+      'You keep the habits, the knowledge, and the results. Most elite patients continue because the results are real and the lifestyle is sustainable. We offer an affordable month-to-month continuation option for maintenance once the real transformation work is done.',
   },
   {
     question: 'How is this different from hiring a trainer and nutritionist?',
     answer:
       'Most trainers and nutritionists don’t understand kidney disease at all. We integrate kidney-specific nutrition, metabolic optimization, medical monitoring, protocol adjustments based on your labs, and accountability purpose-built for kidney regeneration, which is why it works where generic fitness doesn’t.',
+  },
+  {
+    question: 'Why isn’t pricing listed on this page?',
+    answer:
+      'Because this is a personalized medical program, not a shelf product. Your investment depends on your stage, your goals, and which commitment level fits you. We walk through exact numbers and financing options together on your strategy call, so you get a real answer instead of a generic price tag that may not even apply to your case.',
   },
 ]
