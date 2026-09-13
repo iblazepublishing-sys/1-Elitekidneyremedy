@@ -37,7 +37,7 @@ export function useReveal(threshold = 0.15) {
 }
 
 /**
- * Fires a callback once when a section scrolls into view — used for
+ * Fires a callback once when a section scrolls into view, used for
  * scroll-depth / engagement tracking (GA4).
  */
 export function useScrollDepthTracking(sectionId, onEnter) {

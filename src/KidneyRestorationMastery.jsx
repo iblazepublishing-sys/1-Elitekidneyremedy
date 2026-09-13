@@ -155,12 +155,12 @@ export default function KidneyRestorationMastery() {
             {
               icon: Building2,
               title: 'Dialysis Isn’t Medicine. It’s Management.',
-              body: 'Your nephrologist manages decline. They don’t reverse it. If you were interested in management, you wouldn’t be here. You’re interested in results — reversing kidney decline before dialysis, or exiting it entirely if you’re already there.',
+              body: 'Your nephrologist manages decline. They don’t reverse it. If you were interested in management, you wouldn’t be here. You’re interested in results: reversing kidney decline before dialysis, or exiting it entirely if you’re already there.',
             },
             {
               icon: Hourglass,
               title: 'Your Window Is Real. Your Timeline Is Urgent.',
-              body: 'Stage 3: 6–12 months before prevention options close. Stage 4–5: every month on dialysis is productivity, freedom, and health you can’t get back. The window to act is now — most people wait until it’s too late.',
+              body: 'Stage 3: 6–12 months before prevention options close. Stage 4–5: every month on dialysis is productivity, freedom, and health you can’t get back. The window to act is now. Most people wait until it’s too late.',
             },
             {
               icon: Award,
@@ -285,7 +285,7 @@ export default function KidneyRestorationMastery() {
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               {[
                 'This system is designed specifically for kidney regeneration, not generic wellness.',
-                'You’ll have real accountability — monthly or biweekly — not self-directed guessing.',
+                'You’ll have real accountability, monthly or biweekly, not self-directed guessing.',
                 'Your protocol adjusts based on your labs every 60 days, not templates or guesses.',
               ].map((text) => (
                 <div key={text} className="rounded-xl bg-white/70 p-5 text-sm text-gray-700">
