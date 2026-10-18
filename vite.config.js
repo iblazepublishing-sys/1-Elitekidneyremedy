@@ -1,9 +1,23 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { fileURLToPath, URL } from 'node:url'
 
 // Base path is relative so the built assets resolve correctly whether the
 // site is served from a root domain or a GitHub Pages project path.
+//
+// Multi-page build: the main landing page (index.html) and the shorter
+// call-funnel/VSL page (apply/index.html) are both built from this one
+// project, so they share the same Tailwind config, fonts, logo, and
+// components (Reveal, VslEmbed, etc.).
 export default defineConfig({
   plugins: [react()],
   base: './',
+  build: {
+    rollupOptions: {
+      input: {
+        main: fileURLToPath(new URL('./index.html', import.meta.url)),
+        apply: fileURLToPath(new URL('./apply/index.html', import.meta.url)),
+      },
+    },
+  },
 })

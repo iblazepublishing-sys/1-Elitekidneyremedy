@@ -30,6 +30,10 @@ import StickyHeader from './components/StickyHeader.jsx'
 import { useScrollDepthTracking } from './hooks/useReveal.js'
 import { trackCtaClick, trackScrollDepth } from './lib/analytics.js'
 import {
+  heroEyebrow,
+  heroHeadlineLine1,
+  heroHeadlineLine2,
+  heroSubheadline,
   pillars,
   coreInclusions,
   pricingTiers,
@@ -111,17 +115,16 @@ export default function KidneyRestorationMastery() {
         <div className="relative mx-auto max-w-5xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-mint ring-1 ring-white/20">
             <Sparkles className="h-3.5 w-3.5" />
-            Elite Medical-Grade Program
+            {heroEyebrow}
           </span>
 
           <h1 className="mt-6 text-h1-mobile sm:text-h1-desktop text-white text-balance">
-            You Didn&rsquo;t Get Here By Accepting Average.
-            <br className="hidden sm:block" /> Why Accept Dialysis?
+            {heroHeadlineLine1}
+            <br className="hidden sm:block" /> {heroHeadlineLine2}
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-gray-200">
-            Elite medical-grade kidney restoration for serious patients. Premium
-            personalization. Measurable results. Guaranteed.
+            {heroSubheadline}
           </p>
 
           <div className="mt-10">

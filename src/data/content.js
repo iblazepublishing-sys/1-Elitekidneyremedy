@@ -1,6 +1,25 @@
 // All page copy lives here so KidneyRestorationMastery.jsx stays about layout,
 // and copy edits never require touching component logic.
 
+// Shared hero copy — used by both the full landing page and the shorter
+// call-funnel/VSL page (src/CallFunnelPage.jsx), so the two always match.
+export const heroEyebrow = 'Elite Medical-Grade Program'
+export const heroHeadlineLine1 = 'You Didn’t Get Here By Accepting Average.'
+export const heroHeadlineLine2 = 'Why Accept Dialysis?'
+export const heroSubheadline =
+  'Elite medical-grade kidney restoration for serious patients. Premium personalization. Measurable results. Guaranteed.'
+
+// VSL chapter markers, shown as a clickable table of contents under the
+// video on the call-funnel page. Placeholder timestamps/titles — replace
+// once the real video and its chapter breakdown are final.
+export const vslChapters = [
+  { time: '0:00', title: 'Why Standard Dialysis Care Is Incomplete' },
+  { time: '2:15', title: 'The System Behind Elite Kidney Restoration' },
+  { time: '6:40', title: 'Real Patients, Real Lab Results' },
+  { time: '11:10', title: 'Is This Program Right For You' },
+  { time: '14:30', title: 'What Happens After You Apply' },
+]
+
 export const pillars = [
   {
     icon: 'Salad',
@@ -129,8 +148,13 @@ export const pricingTiers = [
 //   - calendar: your booking link (Calendly, Acuity, etc.), shared across
 //     tiers — the tier name is appended as a query param so you can see
 //     which tier someone was looking at when they booked
+//   - typeform: the application form for the call-funnel page's "Apply Now"
+//     button. Typeform's own post-submit redirect handles sending people
+//     on to book a call (or wherever else) after they finish the form —
+//     that's configured inside Typeform, not here.
 export const ctaLinks = {
   calendar: 'https://calendly.com/YOUR-LINK/strategy-call',
+  typeform: 'https://YOUR-TYPEFORM.typeform.com/to/XXXXXXXX',
   tiers: {
     Foundation: {
       store: 'https://YOUR-STORE.com/products/foundation-program',
