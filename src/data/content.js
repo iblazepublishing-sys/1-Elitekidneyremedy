@@ -1,6 +1,8 @@
 // All page copy lives here so KidneyRestorationMastery.jsx stays about layout,
 // and copy edits never require touching component logic.
 
+import vslPosterImage from '../assets/vsl-poster.jpg'
+
 // Shared hero copy — used by both the full landing page and the shorter
 // call-funnel/VSL page (src/CallFunnelPage.jsx), so the two always match.
 export const heroEyebrow = 'Elite Medical-Grade Program'
@@ -13,6 +15,9 @@ export const heroSubheadline =
 // on the main page and the call-funnel page.
 export const vslSrc =
   'https://cdn.shopify.com/videos/c/o/v/46fcafe38cfd41d1888772127dab162d.mp4'
+
+// Freeze-frame cover image shown before the video plays/loads.
+export const vslPoster = vslPosterImage
 
 // VSL chapter markers, shown as a clickable table of contents under the
 // video. `seconds` is used to actually seek the <video> when clicked.

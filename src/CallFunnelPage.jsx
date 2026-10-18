@@ -11,6 +11,7 @@ import {
   heroHeadlineLine2,
   heroSubheadline,
   vslSrc,
+  vslPoster,
   vslChapters,
   ctaLinks,
 } from './data/content.js'
@@ -62,7 +63,7 @@ export default function CallFunnelPage() {
 
         <Reveal delay={100}>
           <div className="mt-10">
-            <VslEmbed ref={videoRef} src={vslSrc} />
+            <VslEmbed ref={videoRef} src={vslSrc} posterUrl={vslPoster} />
             <VslChapters chapters={vslChapters} onSeek={seekTo} />
           </div>
         </Reveal>

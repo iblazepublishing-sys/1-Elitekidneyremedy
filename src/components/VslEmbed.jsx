@@ -27,7 +27,7 @@ const VslEmbed = forwardRef(function VslEmbed(
             controls
             playsInline
             preload="metadata"
-            className="h-full w-full bg-navy-light"
+            className="h-full w-full bg-navy-light object-cover"
           >
             Your browser doesn&rsquo;t support embedded video. You can{' '}
             <a href={src} className="underline">

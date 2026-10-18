@@ -35,6 +35,7 @@ import {
   heroHeadlineLine2,
   heroSubheadline,
   vslSrc,
+  vslPoster,
   pillars,
   coreInclusions,
   pricingTiers,
@@ -132,7 +133,7 @@ export default function KidneyRestorationMastery() {
             <p className="mb-4 text-xs font-bold uppercase tracking-widest text-mint">
               Watch This Before You Apply
             </p>
-            <VslEmbed src={vslSrc} />
+            <VslEmbed src={vslSrc} posterUrl={vslPoster} />
           </div>
 
           <div className="mt-10 flex flex-col items-center gap-3">
