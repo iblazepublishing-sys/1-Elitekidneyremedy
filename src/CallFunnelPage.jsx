@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import Reveal from './components/Reveal.jsx'
 import VslEmbed from './components/VslEmbed.jsx'
@@ -9,6 +10,7 @@ import {
   heroHeadlineLine1,
   heroHeadlineLine2,
   heroSubheadline,
+  vslSrc,
   vslChapters,
   ctaLinks,
 } from './data/content.js'
@@ -22,6 +24,15 @@ import {
  * Typeform's own post-submit flow, not this page.
  */
 export default function CallFunnelPage() {
+  const videoRef = useRef(null)
+
+  const seekTo = (chapter) => {
+    const video = videoRef.current
+    if (!video) return
+    video.currentTime = chapter.seconds
+    video.play()
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-navy via-navy to-teal-dark text-white">
       <header className="px-5 py-6 sm:px-10 sm:py-8">
@@ -51,8 +62,8 @@ export default function CallFunnelPage() {
 
         <Reveal delay={100}>
           <div className="mt-10">
-            <VslEmbed />
-            <VslChapters chapters={vslChapters} />
+            <VslEmbed ref={videoRef} src={vslSrc} />
+            <VslChapters chapters={vslChapters} onSeek={seekTo} />
           </div>
         </Reveal>
 

@@ -1,10 +1,10 @@
 import { Play } from 'lucide-react'
 
 /**
- * Clickable chapter list for the VSL. Clicking a chapter seeks the video
- * when `videoRef` is a plain HTML5 <video> element; it's a no-op (still
- * fine as a visual table of contents) when the video is an iframe embed,
- * since cross-origin iframes can't be seeked from the parent page.
+ * Clickable chapter list for the VSL. `onSeek` receives the full chapter
+ * object (so callers with a real <video> ref can jump to `chapter.seconds`);
+ * it's optional, so this still works as a plain visual table of contents
+ * when there's nothing to seek (e.g. a cross-origin iframe embed).
  */
 export default function VslChapters({ chapters, onSeek }) {
   return (
@@ -17,7 +17,7 @@ export default function VslChapters({ chapters, onSeek }) {
           <li key={chapter.time}>
             <button
               type="button"
-              onClick={() => onSeek?.(chapter.time)}
+              onClick={() => onSeek?.(chapter)}
               className="group flex w-full items-center gap-3 rounded-lg px-2 py-2 text-left transition-colors duration-150 hover:bg-white/10"
             >
               <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-teal/20 text-teal transition-colors duration-150 group-hover:bg-teal group-hover:text-white">

@@ -9,15 +9,25 @@ export const heroHeadlineLine2 = 'Why Accept Dialysis?'
 export const heroSubheadline =
   'Elite medical-grade kidney restoration for serious patients. Premium personalization. Measurable results. Guaranteed.'
 
+// The VSL itself, hosted on Shopify's CDN. Used by both the hero VSL slot
+// on the main page and the call-funnel page.
+export const vslSrc =
+  'https://cdn.shopify.com/videos/c/o/v/46fcafe38cfd41d1888772127dab162d.mp4'
+
 // VSL chapter markers, shown as a clickable table of contents under the
-// video on the call-funnel page. Placeholder timestamps/titles — replace
-// once the real video and its chapter breakdown are final.
+// video. `seconds` is used to actually seek the <video> when clicked.
+// Note: "7:142" as given didn't parse as a timestamp (142 seconds would
+// land before 6:44) — read as 7:14, between "Not sure yet?" and "Apply
+// now". Flag it if that's not what was meant.
 export const vslChapters = [
-  { time: '0:00', title: 'Why Standard Dialysis Care Is Incomplete' },
-  { time: '2:15', title: 'The System Behind Elite Kidney Restoration' },
-  { time: '6:40', title: 'Real Patients, Real Lab Results' },
-  { time: '11:10', title: 'Is This Program Right For You' },
-  { time: '14:30', title: 'What Happens After You Apply' },
+  { time: '0:00', seconds: 0, title: 'Intro' },
+  { time: '0:30', seconds: 30, title: 'Why the standard options feel limiting' },
+  { time: '1:40', seconds: 100, title: 'How the program works' },
+  { time: '3:30', seconds: 210, title: 'Why this approach is different' },
+  { time: '4:55', seconds: 295, title: 'Coaching tiers and pricing' },
+  { time: '6:44', seconds: 404, title: 'Not sure yet? Start here' },
+  { time: '7:14', seconds: 434, title: 'Next steps: book a strategy call' },
+  { time: '8:22', seconds: 502, title: 'Apply now' },
 ]
 
 export const pillars = [

@@ -1,14 +1,45 @@
+import { forwardRef } from 'react'
 import { Play } from 'lucide-react'
 
 /**
- * Responsive 16:9 video slot for the top-of-page VSL.
- *
- * Pass `embedUrl` (a Wistia/Vimeo/YouTube embed URL, or your own hosted
- * player's embed src) once the video is ready, and it renders as a live
- * iframe. Until then it shows a placeholder so the page still looks
- * intentional rather than broken.
+ * Responsive 16:9 video slot for the VSL. Three states:
+ *   1. `src` set: a self-hosted video file (e.g. your Shopify CDN .mp4) —
+ *      renders a native <video>. `ref` is forwarded to the <video> element
+ *      so a parent (e.g. VslChapters) can seek it directly.
+ *   2. `embedUrl` set instead: a Wistia/Vimeo/YouTube embed URL — renders
+ *      as an iframe. Chapter seeking can't reach into a cross-origin
+ *      iframe, so VslChapters just acts as a visual table of contents.
+ *   3. Neither set: a placeholder, so the page still looks intentional
+ *      rather than broken while the video isn't wired up yet.
  */
-export default function VslEmbed({ embedUrl, posterUrl, title = 'Program overview video' }) {
+const VslEmbed = forwardRef(function VslEmbed(
+  { src, embedUrl, posterUrl, title = 'Program overview video' },
+  ref,
+) {
+  if (src) {
+    return (
+      <div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-2xl shadow-premium ring-1 ring-white/10">
+        <div className="aspect-video">
+          <video
+            ref={ref}
+            src={src}
+            poster={posterUrl}
+            controls
+            playsInline
+            preload="metadata"
+            className="h-full w-full bg-navy-light"
+          >
+            Your browser doesn&rsquo;t support embedded video. You can{' '}
+            <a href={src} className="underline">
+              download the video
+            </a>{' '}
+            instead.
+          </video>
+        </div>
+      </div>
+    )
+  }
+
   if (embedUrl) {
     return (
       <div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-2xl shadow-premium ring-1 ring-white/10">
@@ -47,4 +78,6 @@ export default function VslEmbed({ embedUrl, posterUrl, title = 'Program overvie
       </div>
     </div>
   )
-}
+})
+
+export default VslEmbed
