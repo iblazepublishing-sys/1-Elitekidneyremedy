@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { trackCtaClick } from '../lib/analytics.js'
+import logo from '../assets/logo.png'
 
 export default function StickyHeader({ onApply }) {
   const [isVisible, setIsVisible] = useState(false)
@@ -19,9 +20,7 @@ export default function StickyHeader({ onApply }) {
     >
       <div className="bg-navy/95 backdrop-blur supports-[backdrop-filter]:bg-navy/80 shadow-lg">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-8">
-          <span className="text-sm sm:text-base font-extrabold tracking-tight text-white">
-            Kidney Restoration <span className="text-teal">Mastery</span>
-          </span>
+          <img src={logo} alt="Kidney Remedy Elite" className="h-8 w-auto sm:h-10" />
           <button
             type="button"
             onClick={() => {
