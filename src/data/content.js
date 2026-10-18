@@ -164,7 +164,7 @@ export const pricingTiers = [
 //     that's configured inside Typeform, not here.
 export const ctaLinks = {
   calendar: 'https://calendly.com/YOUR-LINK/strategy-call',
-  typeform: 'https://YOUR-TYPEFORM.typeform.com/to/XXXXXXXX',
+  typeform: 'https://form.typeform.com/to/sr0lkdHv',
   tiers: {
     Foundation: {
       store: 'https://YOUR-STORE.com/products/foundation-program',
