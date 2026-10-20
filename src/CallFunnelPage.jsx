@@ -20,7 +20,7 @@ import {
  * The short "call funnel" / VSL registration page. Deliberately minimal:
  * logo, the same headline and subheadline as the main landing page, the
  * VSL with its chapter list, and a single Apply Now button that sends
- * people to the Typeform application. Nothing else — anything a visitor
+ * people to the Typeform application. Nothing else. Anything a visitor
  * needs beyond that point (booking a call, next steps) is handled by
  * Typeform's own post-submit flow, not this page.
  */

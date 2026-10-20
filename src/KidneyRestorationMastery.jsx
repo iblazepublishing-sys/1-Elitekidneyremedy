@@ -16,7 +16,6 @@ import {
   Sparkles,
   DollarSign,
   BarChart3,
-  Lock,
 } from 'lucide-react'
 
 import Reveal from './components/Reveal.jsx'
@@ -36,6 +35,9 @@ import {
   heroSubheadline,
   vslSrc,
   vslPoster,
+  frankStoryVideoSrc,
+  customerProgressVideoSrc,
+  confirmationBanner,
   pillars,
   coreInclusions,
   pricingTiers,
@@ -99,6 +101,19 @@ export default function KidneyRestorationMastery() {
   return (
     <div className="min-h-screen bg-cloud text-ink">
       <StickyHeader onApply={scrollToApply} />
+
+      {/* ============ CONFIRMATION BANNER ============ */}
+      <div className="bg-mint px-5 py-3 text-center sm:px-10">
+        <p className="mx-auto flex max-w-3xl items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-teal-dark">
+          <CheckCircle2 className="h-4 w-4 flex-shrink-0" />
+          <span>
+            <span className="font-extrabold uppercase tracking-wide">
+              {confirmationBanner.eyebrow}:
+            </span>{' '}
+            {confirmationBanner.message}
+          </span>
+        </p>
+      </div>
 
       {/* ============ SECTION 1: HERO ============ */}
       <TrackedSection
@@ -262,7 +277,7 @@ export default function KidneyRestorationMastery() {
           <SectionHeading
             eyebrow="Investment"
             title="Choose Your Commitment Level"
-            subtitle="Same core program. Different intensity of access and oversight. Your exact investment is discussed personally on your strategy call."
+            subtitle="Same core program. Different intensity of access and oversight."
           />
         </Reveal>
 
@@ -350,6 +365,37 @@ export default function KidneyRestorationMastery() {
               <LabResultCard {...result} />
             </Reveal>
           ))}
+        </div>
+      </TrackedSection>
+
+      {/* ============ SECTION 6C: MORE PROOF (VIDEOS) ============ */}
+      <TrackedSection id="more-proof" className="bg-navy px-5 py-16 sm:px-10 sm:py-20">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Go Deeper"
+            title="More of the Story, In Their Own Words"
+            subtitle="Two more videos to help you decide: Frank's full story, and what day-to-day progress actually looks like for our patients."
+            light
+          />
+        </Reveal>
+
+        <div className="mx-auto mt-12 grid max-w-6xl gap-8 sm:grid-cols-2">
+          <Reveal>
+            <div>
+              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-mint">
+                Watch Frank&rsquo;s Story
+              </p>
+              <VslEmbed src={frankStoryVideoSrc} title="Watch Frank's story" />
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <div>
+              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-mint">
+                Customer Reported Progress
+              </p>
+              <VslEmbed src={customerProgressVideoSrc} title="Customer reported day-to-day progress" />
+            </div>
+          </Reveal>
         </div>
       </TrackedSection>
 
@@ -450,15 +496,12 @@ export default function KidneyRestorationMastery() {
               <p className="text-xs font-bold uppercase tracking-widest text-mint">
                 Mastery Tier
               </p>
-              <h3 className="mt-2 flex items-center gap-2 text-lg font-extrabold text-white">
-                <Lock className="h-4 w-4 text-mint" />
-                Revealed On Your Call
-              </h3>
+              <h3 className="mt-2 text-lg font-extrabold text-white">$9,000 / Year</h3>
               <dl className="mt-5 space-y-3 text-sm">
                 <div className="flex justify-between gap-3">
                   <dt className="text-gray-300">Cost</dt>
                   <dd className="text-right font-semibold text-white">
-                    Discussed on your call, financing available
+                    $9,000/yr ($750/mo financed)
                   </dd>
                 </div>
                 <div className="flex justify-between gap-3">
@@ -493,9 +536,8 @@ export default function KidneyRestorationMastery() {
               <h3 className="mt-4 text-lg font-extrabold text-navy">The Math For You</h3>
               <p className="mt-3 text-sm leading-relaxed text-gray-700">
                 Dialysis costs $100k–150k annually, plus lost productivity, plus lost
-                freedom. Our program costs a fraction of that, with measurable results
-                guaranteed. If we help you avoid dialysis, it can pay for itself many times
-                over in the first year alone. If we help you exit dialysis? It&rsquo;s the
+                freedom. Our program costs $9k. If we help you avoid dialysis, it paid for
+                itself in less than a month. If we help you exit dialysis? It&rsquo;s the
                 best investment you&rsquo;ll ever make. This isn&rsquo;t a cost. This is
                 getting your life and business back.
               </p>
@@ -587,24 +629,24 @@ export default function KidneyRestorationMastery() {
           <div className="mx-auto mt-10 max-w-2xl rounded-2xl bg-cloud p-7 sm:p-9 ring-1 ring-gray-100">
             <p className="flex items-center gap-2 text-sm font-bold text-navy">
               <BarChart3 className="h-4 w-4 text-teal" />
-              Payment Options
+              Mastery Tier ($9,000) Payment Options
             </p>
             <ul className="mt-4 space-y-2.5 text-sm text-gray-600">
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal" />
-                Pay in full, or split across the length of your program
+                Full payment: $9,000 one-time
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal" />
-                Monthly plans available through Affirm at 0% APR
+                Monthly plan: $750/month × 12 (Affirm, 0% APR)
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal" />
-                Semi-annual plans available through Affirm at 0% APR
+                Semi-annual: $4,500 × 2 (Affirm, 0% APR)
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal" />
-                Flexible WHOP payment plans available
+                WHOP flexible payment plan available
               </li>
             </ul>
             <p className="mt-5 text-sm text-gray-500">

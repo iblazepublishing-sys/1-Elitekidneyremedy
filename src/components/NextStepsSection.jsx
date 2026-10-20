@@ -50,7 +50,11 @@ export default function NextStepsSection({ tiers, ctaLinks, selectedTier, onSele
         ))}
       </div>
 
-      <p className="mx-auto mt-4 max-w-xl text-center text-sm text-gray-500">
+      <p className="mx-auto mt-4 text-center text-2xl font-extrabold text-navy">
+        {activeTier.price}
+        <span className="ml-1.5 text-sm font-semibold text-gray-500">/ {activeTier.term}</span>
+      </p>
+      <p className="mx-auto mt-2 max-w-xl text-center text-sm text-gray-500">
         {activeTier.whoChooses}
       </p>
 

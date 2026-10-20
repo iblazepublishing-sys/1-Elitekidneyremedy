@@ -3,7 +3,7 @@
 
 import vslPosterImage from '../assets/vsl-poster.jpg'
 
-// Shared hero copy — used by both the full landing page and the shorter
+// Shared hero copy, used by both the full landing page and the shorter
 // call-funnel/VSL page (src/CallFunnelPage.jsx), so the two always match.
 export const heroEyebrow = 'Elite Medical-Grade Program'
 export const heroHeadlineLine1 = 'You Didn’t Get Here By Accepting Average.'
@@ -19,10 +19,27 @@ export const vslSrc =
 // Freeze-frame cover image shown before the video plays/loads.
 export const vslPoster = vslPosterImage
 
+// Two supporting proof videos shown further down the confirmation page,
+// after someone has already applied and wants more detail before deciding.
+export const frankStoryVideoSrc =
+  'https://cdn.shopify.com/videos/c/o/v/a0e825800fe54f7ab75c5ae9f47d045e.mp4'
+export const customerProgressVideoSrc =
+  'https://cdn.shopify.com/videos/c/o/v/67b302f9e89443f9b56b973fd24e8e5b.mov'
+
+// Shown at the very top of the page for people arriving after they've
+// already applied (e.g. a Typeform post-submit redirect): confirms the
+// application landed, then frames the rest of the page as the full detail
+// they get now that they're in: real pricing, lab proof, more videos.
+export const confirmationBanner = {
+  eyebrow: 'Application Received',
+  message:
+    'You’re in. Here’s everything you need: full pricing, real lab results, and more of the story, before your call.',
+}
+
 // VSL chapter markers, shown as a clickable table of contents under the
 // video. `seconds` is used to actually seek the <video> when clicked.
 // Note: "7:142" as given didn't parse as a timestamp (142 seconds would
-// land before 6:44) — read as 7:14, between "Not sure yet?" and "Apply
+// land before 6:44): read as 7:14, between "Not sure yet?" and "Apply
 // now". Flag it if that's not what was meant.
 export const vslChapters = [
   { time: '0:00', seconds: 0, title: 'Intro' },
@@ -96,14 +113,15 @@ export const coreInclusions = [
   'Guarantee: 50% refund if no eGFR improvement at 6 months',
 ]
 
-// Pricing is intentionally not shown here. Like most premium/high-ticket
-// programs, the investment is discussed personally on the strategy call
-// once we understand the applicant's stage and goals. PricingCard renders
-// a "revealed on your call" state instead of a dollar figure.
+// Full pricing is shown here: this page is the confirmation/full-info
+// page people land on after they've already applied (via /apply/'s
+// Typeform), so transparency is the right call. The pre-call VSL funnel
+// page intentionally doesn't show these numbers.
 export const pricingTiers = [
   {
     tier: 'Foundation',
     name: 'Foundation',
+    price: '$6,000',
     term: '6 Months',
     positioning: 'Entry-Level Premium',
     features: [
@@ -119,7 +137,9 @@ export const pricingTiers = [
   {
     tier: 'Mastery',
     name: 'Mastery',
+    price: '$9,000',
     term: '12 Months',
+    monthlyNote: '$750/month with financing',
     positioning: 'Full Elite Program',
     featured: true,
     features: [
@@ -137,6 +157,7 @@ export const pricingTiers = [
   {
     tier: 'Elite',
     name: 'Elite',
+    price: '$30,000',
     term: '12 Months',
     positioning: 'Maximum Premium Access',
     features: [
@@ -157,15 +178,15 @@ export const pricingTiers = [
 
 // Where each of the three "ready to move forward" CTAs actually sends
 // someone. Replace every placeholder below with your real links before
-// launch — nothing here is wired to a real destination yet.
+// launch, nothing here is wired to a real destination yet.
 //   - store: the product page on your main store for that tier (pay in full)
 //   - financing: your Affirm or WHOP checkout/financing link for that tier
 //   - calendar: your booking link (Calendly, Acuity, etc.), shared across
-//     tiers — the tier name is appended as a query param so you can see
+//     tiers, the tier name is appended as a query param so you can see
 //     which tier someone was looking at when they booked
 //   - typeform: the application form for the call-funnel page's "Apply Now"
 //     button. Typeform's own post-submit redirect handles sending people
-//     on to book a call (or wherever else) after they finish the form —
+//     on to book a call (or wherever else) after they finish the form,
 //     that's configured inside Typeform, not here.
 export const ctaLinks = {
   calendar: 'https://calendly.com/YOUR-LINK/strategy-call',
@@ -310,7 +331,7 @@ export const faqs = [
   {
     question: 'Which tier should I choose?',
     answer:
-      'Mastery is our primary tier for most elite customers: the full program, monthly coaching, and comprehensive tracking. Foundation is for testing the system first. Elite is for biweekly coaching, advanced medical oversight, and premium access. We’ll help you find the right fit, and walk through the exact investment for each, on your strategy call.',
+      'Mastery ($9,000/12mo) is our primary tier for most elite customers: the full program, monthly coaching, and comprehensive tracking. Foundation ($6,000/6mo) is for testing the system first. Elite ($30,000/12mo) is for biweekly coaching, advanced medical oversight, and premium access. Start where it fits your commitment level.',
   },
   {
     question: 'Will this actually work for my specific stage?',
@@ -320,7 +341,7 @@ export const faqs = [
   {
     question: 'Can I finance this?',
     answer:
-      'Yes. Every tier can be financed through Affirm at 0% APR or through flexible WHOP payment plans, so a single upfront payment is never required. You can go straight to financing from the options below, or talk to us first if you want to walk through the numbers together.',
+      'Yes. Mastery tier is $9,000/year, payable in full or split into 12 monthly payments of $750 through Affirm at 0% APR. We also offer flexible WHOP payment plans. If budget is a concern, Foundation tier is $6,000 over 6 months. Go straight to financing from the options below, or talk to us first if you want to walk through the numbers together.',
   },
   {
     question: 'What if I’m already on dialysis? Will this actually work?',
@@ -350,7 +371,7 @@ export const faqs = [
   {
     question: 'What happens after my commitment ends?',
     answer:
-      'You keep the habits, the knowledge, and the results. Most elite patients continue because the results are real and the lifestyle is sustainable. We offer an affordable month-to-month continuation option for maintenance once the real transformation work is done.',
+      'You keep the habits, the knowledge, and the results. Most elite patients continue because the results are real and the lifestyle is sustainable. We offer month-to-month continuation at a lower cost ($300–500/month) for maintenance once the real transformation work is done.',
   },
   {
     question: 'How is this different from hiring a trainer and nutritionist?',
@@ -358,8 +379,8 @@ export const faqs = [
       'Most trainers and nutritionists don’t understand kidney disease at all. We integrate kidney-specific nutrition, metabolic optimization, medical monitoring, protocol adjustments based on your labs, and accountability purpose-built for kidney regeneration, which is why it works where generic fitness doesn’t.',
   },
   {
-    question: 'Why isn’t pricing listed on this page?',
+    question: 'I already applied. Do I need to do anything else?',
     answer:
-      'Because this is a personalized medical program, not a shelf product. Your investment depends on your stage, your goals, and which commitment level fits you. We walk through exact numbers and financing options together on your strategy call, so you get a real answer instead of a generic price tag that may not even apply to your case.',
+      'Not necessarily. You can pick your tier above and go straight to checkout or financing right now, or book a call first if you still have questions. Either way, we review every application personally, so if we reach out before you take action, it’s to make sure the tier you’re choosing actually fits your stage.',
   },
 ]

@@ -3,10 +3,10 @@ import { Play } from 'lucide-react'
 
 /**
  * Responsive 16:9 video slot for the VSL. Three states:
- *   1. `src` set: a self-hosted video file (e.g. your Shopify CDN .mp4) —
+ *   1. `src` set: a self-hosted video file (e.g. your Shopify CDN .mp4):
  *      renders a native <video>. `ref` is forwarded to the <video> element
  *      so a parent (e.g. VslChapters) can seek it directly.
- *   2. `embedUrl` set instead: a Wistia/Vimeo/YouTube embed URL — renders
+ *   2. `embedUrl` set instead: a Wistia/Vimeo/YouTube embed URL, renders
  *      as an iframe. Chapter seeking can't reach into a cross-origin
  *      iframe, so VslChapters just acts as a visual table of contents.
  *   3. Neither set: a placeholder, so the page still looks intentional
