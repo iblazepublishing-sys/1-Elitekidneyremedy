@@ -2,7 +2,8 @@ import { forwardRef } from 'react'
 import { Play } from 'lucide-react'
 
 /**
- * Responsive 16:9 video slot for the VSL. Three states:
+ * Responsive 9:16 (vertical/portrait) video slot for the VSL — matches the
+ * source videos, which are shot portrait. Three states:
  *   1. `src` set: a self-hosted video file (e.g. your Shopify CDN .mp4):
  *      renders a native <video>. `ref` is forwarded to the <video> element
  *      so a parent (e.g. VslChapters) can seek it directly.
@@ -18,8 +19,8 @@ const VslEmbed = forwardRef(function VslEmbed(
 ) {
   if (src) {
     return (
-      <div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-2xl shadow-premium ring-1 ring-white/10">
-        <div className="aspect-video">
+      <div className="relative mx-auto w-full max-w-xs sm:max-w-sm overflow-hidden rounded-2xl shadow-premium ring-1 ring-white/10">
+        <div className="aspect-[9/16]">
           <video
             ref={ref}
             src={src}
@@ -42,8 +43,8 @@ const VslEmbed = forwardRef(function VslEmbed(
 
   if (embedUrl) {
     return (
-      <div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-2xl shadow-premium ring-1 ring-white/10">
-        <div className="aspect-video">
+      <div className="relative mx-auto w-full max-w-xs sm:max-w-sm overflow-hidden rounded-2xl shadow-premium ring-1 ring-white/10">
+        <div className="aspect-[9/16]">
           <iframe
             src={embedUrl}
             title={title}
@@ -57,9 +58,9 @@ const VslEmbed = forwardRef(function VslEmbed(
   }
 
   return (
-    <div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-2xl shadow-premium ring-1 ring-white/10">
+    <div className="relative mx-auto w-full max-w-xs sm:max-w-sm overflow-hidden rounded-2xl shadow-premium ring-1 ring-white/10">
       <div
-        className="relative flex aspect-video items-center justify-center bg-navy-light"
+        className="relative flex aspect-[9/16] items-center justify-center bg-navy-light"
         style={
           posterUrl
             ? { backgroundImage: `url(${posterUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }

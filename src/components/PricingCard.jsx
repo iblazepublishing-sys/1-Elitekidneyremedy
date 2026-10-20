@@ -1,8 +1,6 @@
 import { Check, Star } from 'lucide-react'
-import { trackCtaClick } from '../lib/analytics.js'
 
 export default function PricingCard({
-  tier,
   name,
   price,
   term,
@@ -11,8 +9,6 @@ export default function PricingCard({
   features,
   whoChooses,
   featured = false,
-  ctaLabel,
-  onApply,
 }) {
   return (
     <div
@@ -61,26 +57,9 @@ export default function PricingCard({
         ))}
       </ul>
 
-      <p
-        className={`mt-6 text-xs italic ${featured ? 'text-gray-300' : 'text-gray-500'}`}
-      >
+      <p className={`mt-6 text-xs italic ${featured ? 'text-gray-300' : 'text-gray-500'}`}>
         {whoChooses}
       </p>
-
-      <button
-        type="button"
-        onClick={() => {
-          trackCtaClick(tier, 'pricing_card')
-          onApply(tier)
-        }}
-        className={`mt-6 w-full rounded-lg px-6 py-3.5 text-base font-bold transition-colors duration-200 ${
-          featured
-            ? 'bg-teal text-white hover:bg-teal-dark'
-            : 'bg-navy text-white hover:bg-navy-light'
-        }`}
-      >
-        {ctaLabel}
-      </button>
     </div>
   )
 }

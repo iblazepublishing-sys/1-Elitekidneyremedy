@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import {
   Building2,
   Hourglass,
@@ -27,7 +27,7 @@ import VslEmbed from './components/VslEmbed.jsx'
 import NextStepsSection from './components/NextStepsSection.jsx'
 import StickyHeader from './components/StickyHeader.jsx'
 import { useScrollDepthTracking } from './hooks/useReveal.js'
-import { trackCtaClick, trackScrollDepth } from './lib/analytics.js'
+import { trackScrollDepth } from './lib/analytics.js'
 import {
   heroEyebrow,
   heroHeadlineLine1,
@@ -91,12 +91,6 @@ function TrackedSection({ id, className = '', children }) {
 
 export default function KidneyRestorationMastery() {
   const [selectedTier, setSelectedTier] = useState('Mastery')
-
-  const scrollToApply = useCallback((tier) => {
-    if (tier) setSelectedTier(tier)
-    const el = document.getElementById('apply')
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }, [])
 
   return (
     <div className="min-h-screen bg-cloud text-ink">
@@ -323,7 +317,7 @@ export default function KidneyRestorationMastery() {
         <div className="mx-auto mt-14 grid max-w-6xl gap-8 sm:grid-cols-3">
           {pricingTiers.map((tier, index) => (
             <Reveal key={tier.tier} delay={index * 100}>
-              <PricingCard {...tier} onApply={scrollToApply} />
+              <PricingCard {...tier} />
             </Reveal>
           ))}
         </div>
