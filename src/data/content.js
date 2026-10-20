@@ -44,22 +44,22 @@ export const moreProofVideos = [
   {
     title: 'Customer Reported Progress',
     src: 'https://cdn.shopify.com/videos/c/o/v/67b302f9e89443f9b56b973fd24e8e5b.mov',
-    posterUrl: customerProgressPoster,
+    posterUrl: morePatientsPoster,
   },
   {
     title: 'More From Our Patients',
     src: 'https://cdn.shopify.com/videos/c/o/v/64aee025bc3e4ff7954fe1155b019b04.mp4',
-    posterUrl: morePatientsPoster,
+    posterUrl: realResultsPoster,
   },
   {
     title: 'A Closer Look',
     src: 'https://cdn.shopify.com/videos/c/o/v/d66a35a345cb454fa68523d62cae1a50.mp4',
-    posterUrl: frankStoryPoster,
+    posterUrl: customerProgressPoster,
   },
   {
     title: 'Real Results, Real Talk',
     src: 'https://cdn.shopify.com/videos/c/o/v/1c7737b515e644f9b2945917f9c14614.mov',
-    posterUrl: realResultsPoster,
+    posterUrl: frankStoryPoster,
   },
 ]
 
