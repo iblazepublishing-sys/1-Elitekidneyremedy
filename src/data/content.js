@@ -25,12 +25,38 @@ export const vslSrc =
 // Freeze-frame cover image shown before the video plays/loads.
 export const vslPoster = vslPosterImage
 
-// Two supporting proof videos shown further down the confirmation page,
-// after someone has already applied and wants more detail before deciding.
-export const frankStoryVideoSrc =
-  'https://cdn.shopify.com/videos/c/o/v/a0e825800fe54f7ab75c5ae9f47d045e.mp4'
-export const customerProgressVideoSrc =
-  'https://cdn.shopify.com/videos/c/o/v/67b302f9e89443f9b56b973fd24e8e5b.mov'
+// Supporting proof videos shown in the carousel further down the
+// confirmation page, after someone has already applied and wants more
+// detail before deciding. `posterUrl` is left undefined until a freeze
+// frame from each video is supplied — VideoCarousel/VslEmbed render a
+// generic placeholder until then rather than a broken image.
+export const moreProofVideos = [
+  {
+    title: 'Watch Frank’s Story',
+    src: 'https://cdn.shopify.com/videos/c/o/v/a0e825800fe54f7ab75c5ae9f47d045e.mp4',
+    posterUrl: undefined,
+  },
+  {
+    title: 'Customer Reported Progress',
+    src: 'https://cdn.shopify.com/videos/c/o/v/67b302f9e89443f9b56b973fd24e8e5b.mov',
+    posterUrl: undefined,
+  },
+  {
+    title: 'More From Our Patients',
+    src: 'https://cdn.shopify.com/videos/c/o/v/64aee025bc3e4ff7954fe1155b019b04.mp4',
+    posterUrl: undefined,
+  },
+  {
+    title: 'A Closer Look',
+    src: 'https://cdn.shopify.com/videos/c/o/v/d66a35a345cb454fa68523d62cae1a50.mp4',
+    posterUrl: undefined,
+  },
+  {
+    title: 'Real Results, Real Talk',
+    src: 'https://cdn.shopify.com/videos/c/o/v/1c7737b515e644f9b2945917f9c14614.mov',
+    posterUrl: undefined,
+  },
+]
 
 // Shown at the very top of the page for people arriving after they've
 // already applied (e.g. a Typeform post-submit redirect): confirms the

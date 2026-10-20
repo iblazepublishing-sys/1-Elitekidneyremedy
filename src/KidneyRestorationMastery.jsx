@@ -24,6 +24,7 @@ import PricingCard from './components/PricingCard.jsx'
 import CaseStudyCard from './components/CaseStudyCard.jsx'
 import LabResultCard from './components/LabResultCard.jsx'
 import VslEmbed from './components/VslEmbed.jsx'
+import VideoCarousel from './components/VideoCarousel.jsx'
 import NextStepsSection from './components/NextStepsSection.jsx'
 import StickyHeader from './components/StickyHeader.jsx'
 import { useScrollDepthTracking } from './hooks/useReveal.js'
@@ -35,8 +36,7 @@ import {
   heroSubheadline,
   vslSrc,
   vslPoster,
-  frankStoryVideoSrc,
-  customerProgressVideoSrc,
+  moreProofVideos,
   confirmationBanner,
   pillars,
   coreInclusions,
@@ -178,35 +178,22 @@ export default function KidneyRestorationMastery() {
         </div>
       </TrackedSection>
 
-      {/* ============ SECTION 1C: MORE PROOF (VIDEOS) ============ */}
+      {/* ============ SECTION 1C: MORE PROOF (VIDEO CAROUSEL) ============ */}
       <TrackedSection id="more-proof" className="bg-navy px-5 py-16 sm:px-10 sm:py-20">
         <Reveal>
           <SectionHeading
             eyebrow="Go Deeper"
             title="More of the Story, In Their Own Words"
-            subtitle="Two more videos to help you decide: Frank's full story, and what day-to-day progress actually looks like for our patients."
+            subtitle="More videos to help you decide: real patients, real results, in their own words."
             light
           />
         </Reveal>
 
-        <div className="mx-auto mt-12 grid max-w-6xl gap-8 sm:grid-cols-2">
-          <Reveal>
-            <div>
-              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-mint">
-                Watch Frank&rsquo;s Story
-              </p>
-              <VslEmbed src={frankStoryVideoSrc} title="Watch Frank's story" />
-            </div>
-          </Reveal>
-          <Reveal delay={100}>
-            <div>
-              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-mint">
-                Customer Reported Progress
-              </p>
-              <VslEmbed src={customerProgressVideoSrc} title="Customer reported day-to-day progress" />
-            </div>
-          </Reveal>
-        </div>
+        <Reveal delay={100}>
+          <div className="mx-auto mt-12 max-w-6xl">
+            <VideoCarousel videos={moreProofVideos} />
+          </div>
+        </Reveal>
       </TrackedSection>
 
       {/* ============ SECTION 2: THE PROBLEM ============ */}

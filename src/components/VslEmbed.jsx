@@ -2,8 +2,9 @@ import { forwardRef } from 'react'
 import { Play } from 'lucide-react'
 
 /**
- * Responsive 9:16 (vertical/portrait) video slot for the VSL — matches the
- * source videos, which are shot portrait. Three states:
+ * Responsive video slot for a VSL. Defaults to 16:9 (horizontal) — pass
+ * `vertical` for a 9:16 (portrait) player, used by the video carousel
+ * further down the page. Three states:
  *   1. `src` set: a self-hosted video file (e.g. your Shopify CDN .mp4):
  *      renders a native <video>. `ref` is forwarded to the <video> element
  *      so a parent (e.g. VslChapters) can seek it directly.
@@ -14,13 +15,18 @@ import { Play } from 'lucide-react'
  *      rather than broken while the video isn't wired up yet.
  */
 const VslEmbed = forwardRef(function VslEmbed(
-  { src, embedUrl, posterUrl, title = 'Program overview video' },
+  { src, embedUrl, posterUrl, vertical = false, title = 'Program overview video' },
   ref,
 ) {
+  const containerClass = `relative mx-auto w-full overflow-hidden rounded-2xl shadow-premium ring-1 ring-white/10 ${
+    vertical ? 'max-w-xs sm:max-w-sm' : 'max-w-3xl'
+  }`
+  const aspectClass = vertical ? 'aspect-[9/16]' : 'aspect-video'
+
   if (src) {
     return (
-      <div className="relative mx-auto w-full max-w-xs sm:max-w-sm overflow-hidden rounded-2xl shadow-premium ring-1 ring-white/10">
-        <div className="aspect-[9/16]">
+      <div className={containerClass}>
+        <div className={aspectClass}>
           <video
             ref={ref}
             src={src}
@@ -43,8 +49,8 @@ const VslEmbed = forwardRef(function VslEmbed(
 
   if (embedUrl) {
     return (
-      <div className="relative mx-auto w-full max-w-xs sm:max-w-sm overflow-hidden rounded-2xl shadow-premium ring-1 ring-white/10">
-        <div className="aspect-[9/16]">
+      <div className={containerClass}>
+        <div className={aspectClass}>
           <iframe
             src={embedUrl}
             title={title}
@@ -58,9 +64,9 @@ const VslEmbed = forwardRef(function VslEmbed(
   }
 
   return (
-    <div className="relative mx-auto w-full max-w-xs sm:max-w-sm overflow-hidden rounded-2xl shadow-premium ring-1 ring-white/10">
+    <div className={containerClass}>
       <div
-        className="relative flex aspect-[9/16] items-center justify-center bg-navy-light"
+        className={`relative flex items-center justify-center bg-navy-light ${aspectClass}`}
         style={
           posterUrl
             ? { backgroundImage: `url(${posterUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }
