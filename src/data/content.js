@@ -136,7 +136,7 @@ export const pillars = [
 ]
 
 export const coreInclusions = [
-  'Kidney Remedy product: your premium monthly supply',
+  'Kidney Remedy Elite Therapy: your premium monthly supply',
   'Personalized nutrition protocol, algorithm-designed for your stage',
   'Macro optimization with customized carb, protein, and fat calculations',
   'Weekly personalized meal plans plus a restaurant ordering guide',
