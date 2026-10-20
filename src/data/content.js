@@ -39,7 +39,7 @@ export const moreProofVideos = [
   {
     title: 'Watch Frank’s Story',
     src: 'https://cdn.shopify.com/videos/c/o/v/a0e825800fe54f7ab75c5ae9f47d045e.mp4',
-    posterUrl: frankStoryPoster,
+    posterUrl: closerLookPoster,
   },
   {
     title: 'Customer Reported Progress',
@@ -54,7 +54,7 @@ export const moreProofVideos = [
   {
     title: 'A Closer Look',
     src: 'https://cdn.shopify.com/videos/c/o/v/d66a35a345cb454fa68523d62cae1a50.mp4',
-    posterUrl: closerLookPoster,
+    posterUrl: frankStoryPoster,
   },
   {
     title: 'Real Results, Real Talk',
