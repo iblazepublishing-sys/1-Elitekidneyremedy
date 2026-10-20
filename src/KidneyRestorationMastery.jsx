@@ -665,19 +665,6 @@ export default function KidneyRestorationMastery() {
           <p className="mx-auto mt-4 max-w-xl text-base sm:text-lg text-gray-200">
             Stop accepting decline. Start demanding results.
           </p>
-
-          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href={`${ctaLinks.calendar}${ctaLinks.calendar.includes('?') ? '&' : '?'}tier=${encodeURIComponent(selectedTier)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackCtaClick(selectedTier, 'final_cta_call')}
-              className="inline-flex items-center gap-2 rounded-lg bg-teal px-8 py-4 text-base font-bold text-white shadow-premium transition-colors duration-200 hover:bg-teal-dark"
-            >
-              Schedule Free Consultation
-              <ArrowRight className="h-5 w-5" />
-            </a>
-          </div>
         </Reveal>
       </TrackedSection>
 
