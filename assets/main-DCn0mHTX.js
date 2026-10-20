@@ -1,0 +1,1 @@
+import{i as e,j as t,k as o}from"./index-D2bEV1HM.js";import{K as r}from"./KidneyRestorationMastery-iH0VhVJx.js";e.createRoot(document.getElementById("root")).render(t.jsx(o.StrictMode,{children:t.jsx(r,{})}));

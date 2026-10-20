@@ -1,1 +1,0 @@
-import{g as e,j as t,i as o}from"./index-8wo_LwCj.js";import{K as r}from"./KidneyRestorationMastery-_ghCsNdd.js";e.createRoot(document.getElementById("root")).render(t.jsx(o.StrictMode,{children:t.jsx(r,{})}));
