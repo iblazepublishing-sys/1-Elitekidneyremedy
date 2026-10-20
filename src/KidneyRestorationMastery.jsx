@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   CheckCircle2,
   XCircle,
+  ArrowRight,
   Phone,
   Mail,
   Sparkles,
@@ -143,6 +144,12 @@ export default function KidneyRestorationMastery() {
             <p className="text-sm text-gray-300">
               Serious commitment levels for serious patients. Financing available.
             </p>
+            <a
+              href="#solution"
+              className="mt-2 text-sm font-semibold text-gray-300 underline decoration-teal/50 underline-offset-4 transition-colors hover:text-white"
+            >
+              Learn More
+            </a>
           </div>
         </div>
       </TrackedSection>
@@ -588,6 +595,13 @@ export default function KidneyRestorationMastery() {
             <p className="mt-5 text-sm text-gray-500">
               No hidden fees. No interest surprises.
             </p>
+            <a
+              href="#pricing"
+              className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-teal-dark underline decoration-teal/40 underline-offset-4 hover:text-teal"
+            >
+              See Your Payment Options
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
         </Reveal>
       </TrackedSection>
