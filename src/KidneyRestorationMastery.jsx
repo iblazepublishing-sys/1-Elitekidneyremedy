@@ -100,7 +100,7 @@ export default function KidneyRestorationMastery() {
 
   return (
     <div className="min-h-screen bg-cloud text-ink">
-      <StickyHeader onApply={scrollToApply} />
+      <StickyHeader />
 
       {/* ============ CONFIRMATION BANNER ============ */}
       <div className="bg-mint px-5 py-3 text-center sm:px-10">
@@ -152,17 +152,6 @@ export default function KidneyRestorationMastery() {
           </div>
 
           <div className="mt-10 flex flex-col items-center gap-3">
-            <button
-              type="button"
-              onClick={() => {
-                trackCtaClick('mastery', 'hero')
-                scrollToApply('Mastery')
-              }}
-              className="group inline-flex items-center gap-2 rounded-lg bg-teal px-8 py-4 text-base font-bold text-white shadow-premium transition-colors duration-200 hover:bg-teal-dark"
-            >
-              Apply for Program
-              <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
-            </button>
             <p className="text-sm text-gray-300">
               Serious commitment levels for serious patients. Financing available.
             </p>
@@ -173,6 +162,56 @@ export default function KidneyRestorationMastery() {
               Learn More
             </a>
           </div>
+        </div>
+      </TrackedSection>
+
+      {/* ============ SECTION 1B: VERIFIED LAB RESULTS ============ */}
+      <TrackedSection id="labs" className="bg-white px-5 py-16 sm:px-10 sm:py-20">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Proof, Not Promises"
+            title="Verified Lab Results"
+            subtitle="The same labs your own nephrologist would run. Reviewed with each patient's care team, not cherry-picked."
+          />
+        </Reveal>
+
+        <div className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-3">
+          {labResults.map((result, index) => (
+            <Reveal key={result.name} delay={index * 100}>
+              <LabResultCard {...result} />
+            </Reveal>
+          ))}
+        </div>
+      </TrackedSection>
+
+      {/* ============ SECTION 1C: MORE PROOF (VIDEOS) ============ */}
+      <TrackedSection id="more-proof" className="bg-navy px-5 py-16 sm:px-10 sm:py-20">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Go Deeper"
+            title="More of the Story, In Their Own Words"
+            subtitle="Two more videos to help you decide: Frank's full story, and what day-to-day progress actually looks like for our patients."
+            light
+          />
+        </Reveal>
+
+        <div className="mx-auto mt-12 grid max-w-6xl gap-8 sm:grid-cols-2">
+          <Reveal>
+            <div>
+              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-mint">
+                Watch Frank&rsquo;s Story
+              </p>
+              <VslEmbed src={frankStoryVideoSrc} title="Watch Frank's story" />
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <div>
+              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-mint">
+                Customer Reported Progress
+              </p>
+              <VslEmbed src={customerProgressVideoSrc} title="Customer reported day-to-day progress" />
+            </div>
+          </Reveal>
         </div>
       </TrackedSection>
 
@@ -346,56 +385,6 @@ export default function KidneyRestorationMastery() {
               <CaseStudyCard {...study} />
             </Reveal>
           ))}
-        </div>
-      </TrackedSection>
-
-      {/* ============ SECTION 6B: VERIFIED LAB RESULTS ============ */}
-      <TrackedSection id="labs" className="bg-white px-5 py-16 sm:px-10 sm:py-20">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Proof, Not Promises"
-            title="Verified Lab Results"
-            subtitle="The same labs your own nephrologist would run. Reviewed with each patient's care team, not cherry-picked."
-          />
-        </Reveal>
-
-        <div className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-3">
-          {labResults.map((result, index) => (
-            <Reveal key={result.name} delay={index * 100}>
-              <LabResultCard {...result} />
-            </Reveal>
-          ))}
-        </div>
-      </TrackedSection>
-
-      {/* ============ SECTION 6C: MORE PROOF (VIDEOS) ============ */}
-      <TrackedSection id="more-proof" className="bg-navy px-5 py-16 sm:px-10 sm:py-20">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Go Deeper"
-            title="More of the Story, In Their Own Words"
-            subtitle="Two more videos to help you decide: Frank's full story, and what day-to-day progress actually looks like for our patients."
-            light
-          />
-        </Reveal>
-
-        <div className="mx-auto mt-12 grid max-w-6xl gap-8 sm:grid-cols-2">
-          <Reveal>
-            <div>
-              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-mint">
-                Watch Frank&rsquo;s Story
-              </p>
-              <VslEmbed src={frankStoryVideoSrc} title="Watch Frank's story" />
-            </div>
-          </Reveal>
-          <Reveal delay={100}>
-            <div>
-              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-mint">
-                Customer Reported Progress
-              </p>
-              <VslEmbed src={customerProgressVideoSrc} title="Customer reported day-to-day progress" />
-            </div>
-          </Reveal>
         </div>
       </TrackedSection>
 
@@ -678,25 +667,15 @@ export default function KidneyRestorationMastery() {
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <button
-              type="button"
-              onClick={() => {
-                trackCtaClick('mastery', 'final_cta')
-                scrollToApply('Mastery')
-              }}
-              className="inline-flex items-center gap-2 rounded-lg bg-teal px-8 py-4 text-base font-bold text-white shadow-premium transition-colors duration-200 hover:bg-teal-dark"
-            >
-              Apply for Program
-              <ArrowRight className="h-5 w-5" />
-            </button>
             <a
               href={`${ctaLinks.calendar}${ctaLinks.calendar.includes('?') ? '&' : '?'}tier=${encodeURIComponent(selectedTier)}`}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackCtaClick(selectedTier, 'final_cta_call')}
-              className="inline-flex items-center gap-2 rounded-lg border-2 border-white/40 px-8 py-4 text-base font-bold text-white transition-colors duration-200 hover:border-white hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-lg bg-teal px-8 py-4 text-base font-bold text-white shadow-premium transition-colors duration-200 hover:bg-teal-dark"
             >
               Schedule Free Consultation
+              <ArrowRight className="h-5 w-5" />
             </a>
           </div>
         </Reveal>

@@ -2,6 +2,12 @@
 // and copy edits never require touching component logic.
 
 import vslPosterImage from '../assets/vsl-poster.jpg'
+import frankLabThumb from '../assets/labs/frank-thumb.jpg'
+import frankLabFull from '../assets/labs/frank-full.jpg'
+import sueLabThumb from '../assets/labs/sue-thumb.jpg'
+import sueLabFull from '../assets/labs/sue-full.jpg'
+import stanleyLabThumb from '../assets/labs/stanley-thumb.jpg'
+import stanleyLabFull from '../assets/labs/stanley-full.jpg'
 
 // Shared hero copy, used by both the full landing page and the shorter
 // call-funnel/VSL page (src/CallFunnelPage.jsx), so the two always match.
@@ -234,29 +240,33 @@ export const caseStudies = [
   },
 ]
 
-// Verified lab result images: each `image` is left null until the real
-// scan/chart is supplied; LabResultCard renders a placeholder slot until then.
+// Verified lab result images. `image` is the cropped thumbnail (the
+// biomarker table, the dramatic part); `fullImage` is the complete report
+// for the "View Full Report" link.
 export const labResults = [
   {
     name: 'Frank Williams',
     metric: 'eGFR',
     change: '11% → 46%',
     note: 'Active dialysis to off dialysis, 9 months',
-    image: null,
+    image: frankLabThumb,
+    fullImage: frankLabFull,
   },
   {
     name: 'Sue Lynn Gross Fisher',
     metric: 'A1C',
     change: '8.8% → 6.2%',
     note: 'No protein in urine within 3 weeks',
-    image: null,
+    image: sueLabThumb,
+    fullImage: sueLabFull,
   },
   {
     name: 'Stanley Shepherd',
     metric: 'eGFR / Creatinine',
     change: '19%→29% eGFR · 3.8→2.6 Cr',
     note: 'Dialysis avoided, 5 months',
-    image: null,
+    image: stanleyLabThumb,
+    fullImage: stanleyLabFull,
   },
 ]
 
