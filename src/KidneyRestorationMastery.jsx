@@ -10,7 +10,6 @@ import {
   CheckCircle2,
   XCircle,
   ArrowRight,
-  Phone,
   Mail,
   Sparkles,
   DollarSign,
@@ -135,7 +134,7 @@ export default function KidneyRestorationMastery() {
 
           <div className="mt-10">
             <p className="mb-4 text-xs font-bold uppercase tracking-widest text-mint">
-              Watch This Before You Apply
+              Watch This After You Apply
             </p>
             <VslEmbed src={vslSrc} posterUrl={vslPoster} />
           </div>
@@ -660,9 +659,6 @@ export default function KidneyRestorationMastery() {
             <div className="flex flex-col gap-2 text-xs text-gray-400 sm:items-end">
               <span className="flex items-center gap-2">
                 <Mail className="h-3.5 w-3.5" /> support@cwbotanicshealth.net
-              </span>
-              <span className="flex items-center gap-2">
-                <Phone className="h-3.5 w-3.5" /> (555) 010-2026
               </span>
             </div>
           </div>
