@@ -8,6 +8,11 @@ import sueLabThumb from '../assets/labs/sue-thumb.jpg'
 import sueLabFull from '../assets/labs/sue-full.jpg'
 import stanleyLabThumb from '../assets/labs/stanley-thumb.jpg'
 import stanleyLabFull from '../assets/labs/stanley-full.jpg'
+import frankStoryPoster from '../assets/videos/frank-story-poster.jpg'
+import customerProgressPoster from '../assets/videos/customer-progress-poster.jpg'
+import morePatientsPoster from '../assets/videos/more-patients-poster.jpg'
+import closerLookPoster from '../assets/videos/closer-look-poster.jpg'
+import realResultsPoster from '../assets/videos/real-results-poster.jpg'
 
 // Shared hero copy, used by both the full landing page and the shorter
 // call-funnel/VSL page (src/CallFunnelPage.jsx), so the two always match.
@@ -34,27 +39,27 @@ export const moreProofVideos = [
   {
     title: 'Watch Frank’s Story',
     src: 'https://cdn.shopify.com/videos/c/o/v/a0e825800fe54f7ab75c5ae9f47d045e.mp4',
-    posterUrl: undefined,
+    posterUrl: frankStoryPoster,
   },
   {
     title: 'Customer Reported Progress',
     src: 'https://cdn.shopify.com/videos/c/o/v/67b302f9e89443f9b56b973fd24e8e5b.mov',
-    posterUrl: undefined,
+    posterUrl: customerProgressPoster,
   },
   {
     title: 'More From Our Patients',
     src: 'https://cdn.shopify.com/videos/c/o/v/64aee025bc3e4ff7954fe1155b019b04.mp4',
-    posterUrl: undefined,
+    posterUrl: morePatientsPoster,
   },
   {
     title: 'A Closer Look',
     src: 'https://cdn.shopify.com/videos/c/o/v/d66a35a345cb454fa68523d62cae1a50.mp4',
-    posterUrl: undefined,
+    posterUrl: closerLookPoster,
   },
   {
     title: 'Real Results, Real Talk',
     src: 'https://cdn.shopify.com/videos/c/o/v/1c7737b515e644f9b2945917f9c14614.mov',
-    posterUrl: undefined,
+    posterUrl: realResultsPoster,
   },
 ]
 
